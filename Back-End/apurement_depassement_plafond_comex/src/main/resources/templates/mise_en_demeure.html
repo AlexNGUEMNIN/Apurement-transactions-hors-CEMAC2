@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Mise en demeure</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        .entete {
+            text-align: right;
+        }
+        .destinataire {
+            margin-top: 60px;
+        }
+        .objet {
+            font-weight: bold;
+            text-decoration: underline;
+            margin-top: 40px;
+        }
+        .corps {
+            margin-top: 30px;
+            text-align: justify;
+        }
+        ul {
+            margin-top: 10px;
+        }
+        .signature {
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="entete">
+        <p>N° <strong th:text="${numSerie}"></strong>/First Bank/PR03/<span th:text="${annee}"></span><br />
+        Yaoundé, le <strong th:text="${dateMiseDem}"></strong></p>
+    </div>
+
+    <div class="destinataire">
+        <p>A Monsieur / Madame <strong th:text="${nomClient}"></strong></p>
+    </div>
+
+    <div class="objet">
+        OBJET : Mise en demeure de justifier les opérations par carte effectuées hors CEMAC.
+    </div>
+
+    <div class="corps">
+        <p>Madame, Monsieur</p>
+
+        <p>En application de la <strong>circulaire n°<span th:text="${libCirculaire}"></span></strong> du Gouverneur de la BEAC, précisant les conditions et modalités d’utilisation à l’extérieur des instruments de paiement électronique ainsi que le règlement à distance des transactions, vous êtes tenu(e) de fournir, dans un délai de 30 jours maximum suivant la première transaction hors de la CEMAC, les preuves de voyage justifiant ces opérations.</p>
+
+        <p>À ce jour, nous n’avons pas reçu les justificatifs relatifs aux transactions effectuées hors de la CEMAC avec votre carte numéro <strong th:text="${numCarte}"></strong> et ce, malgré nos relances antérieures. Ces transactions ont été enregistrées à compter du <strong th:text="${dateTransaction}"></strong>.</p>
+
+        <p>Par la présente, nous vous mettons en demeure de justifier, dans un délai de <span th:text="${dureeDelaiApresMiseendemeure}"></span> (<span th:text="${libDelaiApresMiseendemeure}"></span>) jours à compter de la réception de ce courrier, les opérations susmentionnées en nous communiquant les pièces suivantes :</p>
+
+        <ul>
+            <li><strong>Billet d’avion</strong> en relation avec les aéroports de la CEMAC ou votre <strong>titre de voyage</strong> si vous vous êtes déplacé(e) par route ;</li>
+            <li><strong>Visa</strong> (le cas échéant) ;</li>
+            <li><strong>Tampon d’entrée ou de sortie</strong> de l’aéroport (ou autre poste d’immigration) de la CEMAC apposé dans votre passeport, ainsi que la <strong>première page présentant votre identité</strong> ;</li>
+            <li><strong>Les factures</strong> des opérations effectuées alors que votre plafond de <strong th:text="${montantPlafond}"></strong> était atteint.</li>
+        </ul>
+
+        <p>Vous pouvez nous transmettre ces justificatifs via notre canal WhatsApp : <a th:href="${lienWhatsapp}" th:text="${lienWhatsapp}"></a> ou via notre adresse mail : <a th:href="'mailto:' + ${lienMail}" th:text="${lienMail}"></a>.</p>
+
+        <p>À défaut de réception des justificatifs dans le délai imparti, et celui-ci expiré, <strong>vos transactions par carte hors CEMAC seront suspendues</strong> jusqu’à la régularisation de votre dossier.</p>
+
+        <p>Veuillez agréer, Madame / Monsieur, l’expression de nos salutations distinguées.</p>
+    </div>
+
+    <div class="signature">
+        <p>POUR LA BANQUE</p>
+    </div>
+
+</body>
+</html>

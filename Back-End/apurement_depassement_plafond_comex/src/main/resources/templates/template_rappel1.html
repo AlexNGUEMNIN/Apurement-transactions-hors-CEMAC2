@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <title>Templates de Rappel d'Apurement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            line-height: 1.6;
+        }
+
+        h2 {
+            color: #2F4F4F;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+        .template {
+            margin-bottom: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="template">
+        <p><strong>Objet :</strong> Rappel – Justification non reçue à J+<strong th:text="${nbreJrEcoule}"></strong></p>
+        <p>Madame, Monsieur <strong th:text="${nomClient}"></strong></p>
+        <p>
+            Nous revenons vers vous concernant la transaction hors CEMAC réalisée le <strong th:text="${dateTransaction}"></strong> avec votre carte <strong th:text="${numCarte}"></strong>.
+        </p>
+        <p>
+            À ce jour, nous n’avons pas reçu les justificatifs exigés. Or, la réglementation BEAC impose un délai de <strong th:text="${nbreJr}"></strong> jour(s) à compter de la date de transaction pour transmettre les éléments suivants :
+        </p>
+        <ul>
+            <li>Billet d’avion ou titre de voyage</li>
+            <li>Visa (si applicable)</li>
+            <li>Tampon d’entrée/sortie dans le passeport</li>
+            <li>Factures si dépassement du plafond</li>
+        </ul>
+        <p>
+            <strong>Il vous reste <strong th:text="${nbreJrRestant}"></strong> jour(s)</strong> pour vous conformer à cette exigence. Passé ce délai, les transactions
+            hors CEMAC seront <strong>suspendues</strong>.
+        </p>
+        <p>
+            Transmettez vos documents via WhatsApp :
+            <a th:href="${lienWhatsapp}" th:text="${lienWhatsapp}"></a> ou par email :
+            <a th:href="'mailto:' + ${lienMail}" th:text="${lienMail}"></a>.
+        </p>
+        <p>Cordialement,<br /><strong>POUR LA BANQUE</strong></p>
+    </div>
+</body>
+</html>
